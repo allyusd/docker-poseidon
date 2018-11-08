@@ -7,7 +7,7 @@ ARG gid=1738539521
 
 ENV HOME /home/${user}
 RUN groupadd -g ${gid} ${group}
-RUN useradd -c "ci user" -d $HOME -u ${uid} -g ${gid} -m ${user}
+RUN useradd -l -c "ci user" -d $HOME -u ${uid} -g ${gid} -m ${user}
 
 RUN pip install conan
 RUN apt-get update && apt-get install curl subversion git -y
