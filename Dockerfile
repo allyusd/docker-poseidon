@@ -12,6 +12,8 @@ RUN useradd -l -c "ci user" -d $HOME -u ${uid} -g ${gid} -m ${user}
 RUN pip install conan
 RUN apt-get update && apt-get install curl subversion git -y
 
+# 32-bit compiler toolchain
 RUN apt-get update && apt-get install libc6-i386 gcc-multilib g++-multilib libc6-dev-i386 libzip-dev lib32ncurses5 lib32z1 libasound2-plugins lib32gcc1 lib32ncurses5 lib32stdc++6 lib32z1 libc6 libcanberra-gtk-module -y
 
-RUN apt-get update && apt-get install xsltproc -y
+# for mosquitto
+RUN apt-get update && apt-get install xsltproc docbook-xsl -y
